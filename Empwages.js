@@ -55,3 +55,14 @@ function getWorkingHours(empCheck) {
     let empWage = empHrs * WAGE_PER_HOUR;
     console.log("UC3 - Emp Wage: " + empWage, " Total Working Hours: " + empHrs);
 }
+
+//UC4
+let NO_OF_WORKING_DAYS=20;
+let empHours=0;
+let dailyWage=0;
+for(let day=0;day<NO_OF_WORKING_DAYS;day++){
+    empHours = GetEmployeeWage(empCheck);
+    dailyWage += empHours*WAGE_PER_HOUR;
+
+}
+console.log("UC4: Total wage is "+dailyWage);

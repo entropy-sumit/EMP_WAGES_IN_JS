@@ -185,3 +185,37 @@ function totalDaysWorked(wage,days)
     return days;
 }
 console.log("UC7-G: Total days worked:- "+dailyWageArr.reduce(totalDaysWorked,0));
+
+
+/*UC8:- Store the Day and the Daily Wage along with the Total Wage.
+        - Use Map to store Day wise Wage - Compute the total wage using the Map */
+
+        const MAX_WORKING_HOURS = 160;
+        const MAX_WORKING_DAYS = 20;
+        let totalWorkingDays = 0;
+        let totalWorkingHours = 0;
+        let dailyWageArr = new Array();
+        let totalWage = 0;
+        let dailyWageMap = new Map();
+        function calculateWage(emphours)
+        {
+            return emphours * WAGE_PER_HOUR;
+        }
+        function GetTotalWages(totalWage, dailyWage) 
+        {
+            return totalWage + dailyWage;
+        }
+        
+        while (totalWorkingDays <= MAX_WORKING_DAYS && totalWorkingHours <= MAX_WORKING_HOURS) 
+        {
+            let empCheck = Math.floor(Math.random() * 10) % 3;
+            totalWorkingHours += GetEmployeeWage(empCheck);
+            totalWorkingDays++;
+            let emphours = GetEmployeeWage(empCheck);
+            let dailyWage = calculateWage(emphours);
+            dailyWageArr.push(dailyWage);
+            dailyWageMap.set(totalWorkingDays, dailyWage);
+        }
+        console.log(dailyWageMap);
+        let totalEmpWage = Array.from(dailyWageMap.values()).reduce(GetTotalWages, 0);
+        console.log("UC8: Total employee wage is:- " + totalEmpWage);

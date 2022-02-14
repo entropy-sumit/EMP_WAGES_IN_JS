@@ -66,3 +66,18 @@ for(let day=0;day<NO_OF_WORKING_DAYS;day++){
 
 }
 console.log("UC4: Total wage is "+dailyWage);
+
+//UC5
+const MAX_WORKING_HOURS=160;
+const MAX_WORKING_DAYS=20;
+let totalWorkingDays=0;
+let totalWorkingHours=0;
+let totalWage=0;
+while(totalWorkingDays<=MAX_WORKING_DAYS && totalWorkingHours<=MAX_WORKING_HOURS)
+{
+    let empCheck=Math.floor(Math.random()*10)%3;
+    totalWorkingHours=GetEmployeeWage(empCheck);
+    totalWorkingDays++;
+    totalWage+=totalWorkingHours*WAGE_PER_HOUR;
+}
+console.log("UC5: Total wage is "+totalWage);

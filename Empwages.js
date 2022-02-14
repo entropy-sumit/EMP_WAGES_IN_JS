@@ -81,3 +81,29 @@ while(totalWorkingDays<=MAX_WORKING_DAYS && totalWorkingHours<=MAX_WORKING_HOURS
     totalWage+=totalWorkingHours*WAGE_PER_HOUR;
 }
 console.log("UC5: Total wage is "+totalWage);
+
+//UC6
+const MAX_WORKING_HOURS=160;
+const MAX_WORKING_DAYS=20;
+let totalWorkingDays=0;
+let totalWorkingHours=0;
+let dailyWageArr=new Array();
+let totalWage=0;
+function calculateWage(emphours)
+{
+    return emphours*WAGE_PER_HOUR;
+}
+while(totalWorkingDays<=MAX_WORKING_DAYS && totalWorkingHours<=MAX_WORKING_HOURS)
+{
+    let empCheck=Math.floor(Math.random()*10)%3;
+    totalWorkingHours+=GetEmployeeWage(empCheck);
+    totalWorkingDays++;
+    let emphours = GetEmployeeWage(empCheck);
+    let dailyWage= calculateWage(emphours);
+    dailyWageArr.push(dailyWage);
+}
+dailyWageArr.forEach(wage => 
+{
+    totalWage=totalWage+wage;
+});
+console.log("UC6: Total wage is:-  "+totalWage+" Total HRS:- "+totalWorkingHours+" Total Days:- "+totalWorkingDays);

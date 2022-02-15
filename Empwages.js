@@ -219,3 +219,20 @@ console.log("UC7-G: Total days worked:- "+dailyWageArr.reduce(totalDaysWorked,0)
         console.log(dailyWageMap);
         let totalEmpWage = Array.from(dailyWageMap.values()).reduce(GetTotalWages, 0);
         console.log("UC8: Total employee wage is:- " + totalEmpWage);
+
+    
+        //UC9
+        let totalHours = Array.from(dailyEmpHoursMap.values()).reduce(GetTotal, 0);
+            let totalWage = Array.from(dailyWageMap.values()).reduce(GetTotal, 0);
+            console.log("Total hours worked: " + totalHours + " and total wage earned " + totalWage);
+            let fullWorkingDays = new Array();
+            let partWorkingDays = new Array();
+            let nonWorkingDays = new Array();
+            dailyEmpHoursMap.forEach((value, key, map) => {
+                if (value == 8) fullWorkingDays.push(key);
+                else if (value == 4) partWorkingDays.push(key);
+                else nonWorkingDays.push(key);
+            });
+            console.log("Full working days " + fullWorkingDays);
+            console.log("Part working days " + partWorkingDays);
+            console.log("Non working days " + nonWorkingDays);
